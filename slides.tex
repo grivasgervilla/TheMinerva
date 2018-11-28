@@ -1,9 +1,11 @@
-\documentclass[xcolor=table, aspectratio=43,usenames,dvipsnames]{beamer}
+\documentclass[handout, xcolor=table, aspectratio=43,usenames,dvipsnames]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
 \usepackage[spanish]{babel}
+\decimalpoint
 \usepackage{subfigure, wrapfig}
 \usepackage{tikz}
+\usetikzlibrary{positioning,shapes,shadows,arrows}
 \usepackage{multirow}
 \usepackage{mathtools}
 \usepackage{stmaryrd} %additional math symbol package
@@ -11,77 +13,36 @@
 
 \date{} %not show date
 
-\definecolor{palette1}{RGB}{200,221,219}
-\definecolor{palette2}{RGB}{156,186,184}
-\definecolor{palette3}{RGB}{118,145,146}
-\definecolor{palette4}{RGB}{105,122,120}
-\definecolor{palette5}{RGB}{69,69,69}
-\definecolor{arsenic}{rgb}{0.23, 0.27, 0.29}
+
+% set light or dark background
+\newif\ifdark
+%\darktrue
+
+% define colours
+\definecolor{backgroundcolour}{rgb}{1,1,1}
+\definecolor{fontcolour}{rgb}{0,0,0}
+\input{palettes/greenpalette.tex} %input color palette
 
 \definecolor{text1}{RGB}{69,69,69}
 \definecolor{text2}{RGB}{118,145,146}
 
-\hypersetup{colorlinks,linkcolor=,urlcolor=palette4}
+\hypersetup{colorlinks,linkcolor=,urlcolor=complementary4}
 
 %beamer options
 \usetheme{Montpellier}
 
 \usecolortheme{rose}
-\useinnertheme[shadow]{rounded}
+%\useinnertheme[shadow]{rounded}
 
-\author{author}
-\institute{institute}
 \title{Title}
+\subtitle{Subtitle}
+\author{Author}
 
-\setbeamertemplate{section in toc shaded}[default][50]
+\institute{Institute (could be an image)}
 
-%beamer's colors
-\setbeamercolor{section in toc}{fg=palette5}
-\setbeamercolor{section in toc shaded}{fg=palette3}
-\setbeamercolor{structure}{fg=palette2}
-\setbeamercolor{title}{fg=palette4}
-\setbeamercolor{subtitle}{fg=palette5}
-\setbeamercolor{titlelike}{fg=palette5}
-\setbeamercolor{subsection in toc}{fg=palette2}
-\setbeamercolor{subsection in toc shaded}{fg=palette1}
-\setbeamercolor{page number in head/foot}{fg=palette4}
-%\setbeamercolor{background canvas}{bg=arsenic}
-
-\setbeamertemplate{footline}[frame number]{}
-\setbeamertemplate{navigation symbols}{}
-\setbeamerfont{footline}{size=\fontsize{10}{11}\selectfont}
-
-\newenvironment<>{refblock}{%
-  \begin{actionenv}#1%
-      \def\insertblocktitle{References}%
-      \par%
-      \mode<presentation>{
-        \setbeamercolor{block title}{fg=white,bg=gray}
-        \setbeamercolor{block body}{fg=gray!20!black,bg=white}
-        \setbeamerfont{block body}{size=\tiny}
-        \setbeamercolor{itemize item}{fg=gray}
-       \setbeamertemplate{itemize item}[circle]
-      }
-      \usebeamertemplate{block begin}}
-    {\par\usebeamertemplate{block end}\end{actionenv}}
-
-\lstdefinestyle{customc}{
-  belowcaptionskip=1\baselineskip,
-  breaklines=true,
-  numbers=left,
-  frame=L,
-  xleftmargin=\parindent,
-  language=C++,
-  showstringspaces=false,
-  basicstyle=\tiny\ttfamily,
-  keywordstyle=\bfseries\color{palette4},
-  commentstyle=\itshape\color{palette2},
-  identifierstyle=\color{palette5},
-  stringstyle=\color{palette3},
-}
-
-\lstset{escapechar=@,style=customc,columns=fullflexible}
-
+\input{beamerconfig.tex}
+\input{lstconfig.tex}
+  
 \begin{document}
 \begin{frame}[plain]
   \addtocounter{framenumber}{-1}
@@ -90,17 +51,23 @@
 
 \AtBeginSection[]{
   \begin{frame}[noframenumbering,plain]
-    \frametitle{Content}
+    \frametitle{Contents}
     \tableofcontents[currentsection,hideallsubsections]
   \end{frame}
 }
 
 \AtBeginSubsection[]{
   \begin{frame}[noframenumbering,plain]
-    \frametitle{Content}
+    \frametitle{Contents}
     \tableofcontents[currentsection,currentsubsection]
   \end{frame}
 }
+
+\section{Section 1}
+
+\subsection{Subsection 1}
+
+\section{Section 2}
 
 \end{document}
 
