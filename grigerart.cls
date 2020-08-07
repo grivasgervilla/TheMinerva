@@ -2,12 +2,6 @@
 \ProvidesClass{grigerart}[2020/03/12 Griger's class for articles.]
 
 
-% fonts and symbols
-
-\RequirePackage[T1]{fontenc}
-
-\RequirePackage[oldstylenums, largesmallcaps, nott]{kpfonts}
-
 % pictures and colors
 \RequirePackage[rgb]{xcolor}
 \RequirePackage{tikz}
@@ -21,14 +15,47 @@
 \RequirePackage{kvoptions}
 \DeclareStringOption[0]{hue}
 \DeclareStringOption[0.3]{sdrawing}
-\DeclareStringOption[0.9]{bdrawing}
+\DeclareStringOption[1]{bdrawing}
 \DeclareStringOption[0.3]{stext}
-\DeclareStringOption[0.5]{btext}
+\DeclareStringOption[0.4]{btext}
 \DeclareStringOption[1]{sline}
 \DeclareStringOption[0.5]{bline}
 \ProcessKeyvalOptions*
 
 \LoadClass{article}
+
+% bibliography
+\RequirePackage[%
+backend=bibtex,
+bibstyle=numeric,
+citestyle=numeric-comp,
+sorting=nyt,
+sortcites=true,
+isbn=false,
+url=false,
+doi=false,
+eprint=false]{biblatex}
+
+% fonts and symbols
+
+\RequirePackage{unicode-math}
+\setmainfont[Numbers={OldStyle}, Ligatures=NoCommon]{STIX2Text}[
+Extension={.otf},
+UprightFont={*-Regular},
+BoldFont={*-Bold},
+ItalicFont={*-Italic},
+BoldItalicFont={*-BoldItalic}
+]
+\setmathfont{STIX2Math.otf}
+% \setmathfont{STIX2Math.otf}[
+%         SizeFeatures={
+%             {Size=6-},
+%             {Size=5-6,Font=STIX2Math.otf,Style=MathScript},
+%             {Size= -5,Font=STIX2Math.otf,Style=MathScriptScript}
+%         }]
+
+\newcommand{\blacksquare}{\mdlgblksquare}
+\newcommand{\square}{\mdlgwhtsquare}
 
 % palette
 
@@ -48,15 +75,6 @@
   \xglobal\definecolor{t\i}{Hsb}{\normhue,\stext,\btext}
 }
 
-% theorems
-
-\RequirePackage{amsthm}
-\RequirePackage{thmtools}
-
-\declaretheoremstyle[
-thmbox = {style=S, nounderline, bodystyle=\normalfont\noindent}
-]{grigerthm}
-
 % links
 
 \RequirePackage{hyperref}
@@ -64,8 +82,7 @@ thmbox = {style=S, nounderline, bodystyle=\normalfont\noindent}
 \AtBeginDocument{
   \hypersetup{
     pdftitle = {\@title},
-    pdfauthor = {\@author},
-    linktoc = page
+    pdfauthor = {\@author}
   }
 }
 \makeatother
@@ -73,7 +90,8 @@ thmbox = {style=S, nounderline, bodystyle=\normalfont\noindent}
 \hypersetup{
     colorlinks = true,
     breaklinks = true,
-    allcolors = t0,
+    allcolors = black,
+    linktoc = all
 }
 
 % todonotes
@@ -82,22 +100,42 @@ thmbox = {style=S, nounderline, bodystyle=\normalfont\noindent}
 \setuptodonotes{linecolor = black, bordercolor = black, backgroundcolor = white, figcolor = white, size = \footnotesize}
 
 \tikzset{notestyleraw/.append style={rounded corners = 0pt}}
-% \makeatletter
-% \tikzstyle{notestyleraw} = [
-% draw=\@todonotes@currentbordercolor,
-% fill=\@todonotes@currentbackgroundcolor,
-% text=\@todonotes@currenttextcolor,
-% line width=0.5pt,
-% text width = \@todonotes@textwidth - 1.6ex - 1pt,
-% inner sep = 0.8 ex
-% ]
-% \makeatother
+
+
+% theorems
+
+\RequirePackage{amsthm}
+\RequirePackage{thmbox}
+\RequirePackage{letltxmacro}
+
+\thmboxoptions{
+  style=S,
+  underline=false,
+  bodystyle=\normalfont\noindent,
+  headstyle=\normalfont#1 #2 ,
+  titlestyle=\normalfont : #1
+}
+
+\renewcommand{\proofname}{Proof}
+
+\renewenvironment{proof}
+{
+  \small
+  \proofname:
+}
+{\hfill \scriptsize$\square$\vspace{1em}}
+
+% TOC
+\RequirePackage[titles]{tocloft}
+\renewcommand{\cftsecfont}{}
+\renewcommand{\cftsecpagefont}{}
 
 % tables
 
 \RequirePackage{booktabs}
 
 % enumitem
+
 \RequirePackage{enumitem}
 
 % title
@@ -106,9 +144,15 @@ thmbox = {style=S, nounderline, bodystyle=\normalfont\noindent}
 \makeatletter
 \patchcmd{\@maketitle}% <cmd>
   {\@title}% <search>
-  {\@title \\ \color{d0}\rule{\textwidth}{1pt}}% <replace>
+  {\scshape\@title \\ \color{black}\rule{\textwidth}{1pt}}% <replace>
   {}{}% <success><failure>
 \makeatother
 
+% sections
+
+\RequirePackage{sectsty}
+\allsectionsfont{\normalfont\normalsize\scshape}
+
 % appendices
+
 \RequirePackage[page, toc, titletoc, title]{appendix}
