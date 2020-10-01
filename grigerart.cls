@@ -36,6 +36,10 @@ url=false,
 doi=false,
 eprint=false]{biblatex}
 
+\AtEveryBibitem{%
+  \clearlist{language}%
+}
+
 % fonts and symbols
 
 \RequirePackage{unicode-math}
