@@ -22,15 +22,18 @@
 
 % fonts and symbols
 \RequirePackage{unicode-math}
-\setmainfont[Numbers={OldStyle}, Ligatures=NoCommon]{STIX2Text}[
+\setmainfont[Numbers={OldStyle}]{STIXTwoText}[
+Path=/usr/local/share/fonts/s/,
 Extension={.otf},
-UprightFont={*-Regular},
-BoldFont={*-Bold},
-ItalicFont={*-Italic},
-BoldItalicFont={*-BoldItalic}
+UprightFont={*_Regular},
+BoldFont={*_Bold},
+ItalicFont={*_Italic},
+BoldItalicFont={*_BoldItalic}
 ]
-\setmathfont{STIX2Math.otf}
-\setmonofont{Fira Code}[Contextuals=Alternate, Scale = 0.9]
+\setmathfont{STIXTwoMath_Regular.otf}[
+Path=/usr/local/share/fonts/s/
+]
+\setmonofont{Fira Code}[Contextuals=Alternate, Scale = 0.86]
 
 % bibliography
 \RequirePackage[%
@@ -74,13 +77,16 @@ eprint=false]{biblatex}
 \setbeamertemplate{section in toc}{\tikz{\node[fill=black,text=white]{\inserttocsection};}}
 \setbeamertemplate{section in toc shaded}{\tikz{\node[fill=white]{\inserttocsection};}}
 \setbeamertemplate{bibliography item}{\textbullet}
-\setbeamertemplate{itemize item}{\textbullet}
+\setbeamertemplate{itemize items}{\textbullet}
 \setbeamertemplate{frametitle continuation}{}
 
 %% remove additional spacing before and after block environment
 
-\addtobeamertemplate{block begin}{\vskip -\bigskipamount}{}
-\addtobeamertemplate{block end}{}{\vskip -\smallskipamount}
+%\addtobeamertemplate{block begin}{\vskip -\bigskipamount}{}
+%\addtobeamertemplate{block end}{}{\vskip -\smallskipamount}
+\addtobeamertemplate{block begin}{%
+  \setbeamercolor*{item}{fg=white}%
+}{}
 
 % beamer setup
 \AtBeginSection[]{
@@ -108,3 +114,6 @@ eprint=false]{biblatex}
 
 % remove date
 \date{}
+
+% code
+\RequirePackage{listings}

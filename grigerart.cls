@@ -43,14 +43,18 @@ eprint=false]{biblatex}
 % fonts and symbols
 
 \RequirePackage{unicode-math}
-\setmainfont[Numbers={OldStyle}, Ligatures=NoCommon]{STIX2Text}[
+\setmainfont[Numbers={OldStyle}]{STIXTwoText}[
+Path=/usr/local/share/fonts/s/,
 Extension={.otf},
-UprightFont={*-Regular},
-BoldFont={*-Bold},
-ItalicFont={*-Italic},
-BoldItalicFont={*-BoldItalic}
+UprightFont={*_Regular},
+BoldFont={*_Bold},
+ItalicFont={*_Italic},
+BoldItalicFont={*_BoldItalic}
 ]
-\setmathfont{STIX2Math.otf}
+\setmathfont{STIXTwoMath_Regular.otf}[
+Path=/usr/local/share/fonts/s/
+]
+\setmonofont{Fira Code}[Contextuals=Alternate, Scale = 0.9]
 % \setmathfont{STIX2Math.otf}[
 %         SizeFeatures={
 %             {Size=6-},
