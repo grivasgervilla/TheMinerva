@@ -42,46 +42,7 @@ eprint=false]{biblatex}
 
 % fonts and symbols
 
-\RequirePackage{unicode-math}
-\setmainfont[Numbers={OldStyle}]{STIXTwoText}[
-Path=/usr/local/share/fonts/s/,
-Extension={.otf},
-UprightFont={*_Regular},
-BoldFont={*_Bold},
-ItalicFont={*_Italic},
-BoldItalicFont={*_BoldItalic}
-]
-\setmathfont{STIXTwoMath_Regular.otf}[
-Path=/usr/local/share/fonts/s/
-]
-\setmonofont{Fira Code}[Contextuals=Alternate, Scale = 0.9]
-% \setmathfont{STIX2Math.otf}[
-%         SizeFeatures={
-%             {Size=6-},
-%             {Size=5-6,Font=STIX2Math.otf,Style=MathScript},
-%             {Size= -5,Font=STIX2Math.otf,Style=MathScriptScript}
-%         }]
-
-\newcommand{\blacksquare}{\mdlgblksquare}
-\newcommand{\square}{\mdlgwhtsquare}
-
-% palette
-
-\COPY{\grigerart@hue}{\H}
-\COPY{\grigerart@sdrawing}{\sdrawing}
-\COPY{\grigerart@bdrawing}{\bdrawing}
-\COPY{\grigerart@stext}{\stext}
-\COPY{\grigerart@btext}{\btext}
-\COPY{\grigerart@sline}{\sline}
-\COPY{\grigerart@bline}{\bline}
-\foreach \i in {0,...,359}{
-  \ADD{\H}{\i}{\hue}
-  \MODULO{\hue}{360}{\normhue}
-  \xglobal\definecolor{c\i}{Hsb}{\normhue,1,1}
-  \xglobal\definecolor{l\i}{Hsb}{\normhue,\sline,\bline}
-  \xglobal\definecolor{d\i}{Hsb}{\normhue,\sdrawing,\bdrawing}
-  \xglobal\definecolor{t\i}{Hsb}{\normhue,\stext,\btext}
-}
+\InputIfFileExists{font.cfg}{}{}
 
 % links
 
@@ -105,7 +66,7 @@ Path=/usr/local/share/fonts/s/
 % todonotes
 
 \RequirePackage{todonotes}
-\setuptodonotes{linecolor = black, bordercolor = black, backgroundcolor = white, figcolor = white, size = \footnotesize}
+\setuptodonotes{linecolor = lightgray, bordercolor = lightgray, backgroundcolor = white, figcolor = white, size = \footnotesize}
 
 \tikzset{notestyleraw/.append style={rounded corners = 0pt}}
 
@@ -120,8 +81,8 @@ Path=/usr/local/share/fonts/s/
   style=S,
   underline=false,
   bodystyle=\normalfont\noindent,
-  headstyle=\normalfont#1 #2 ,
-  titlestyle=\normalfont : #1
+  headstyle=\normalfont\bfseries#1 #2 ,
+  titlestyle=\normalfont\bfseries : #1
 }
 
 \renewcommand{\proofname}{Proof}
@@ -159,7 +120,7 @@ Path=/usr/local/share/fonts/s/
 % sections
 
 \RequirePackage{sectsty}
-\allsectionsfont{\normalfont\normalsize\scshape}
+\allsectionsfont{\normalfont\normalsize\bfseries}
 
 % appendices
 

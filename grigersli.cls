@@ -21,19 +21,8 @@
 \RequirePackage{booktabs}
 
 % fonts and symbols
-\RequirePackage{unicode-math}
-\setmainfont[Numbers={OldStyle}]{STIXTwoText}[
-Path=/usr/local/share/fonts/s/,
-Extension={.otf},
-UprightFont={*_Regular},
-BoldFont={*_Bold},
-ItalicFont={*_Italic},
-BoldItalicFont={*_BoldItalic}
-]
-\setmathfont{STIXTwoMath_Regular.otf}[
-Path=/usr/local/share/fonts/s/
-]
-\setmonofont{Fira Code}[Contextuals=Alternate, Scale = 0.86]
+
+\InputIfFileExists{font.cfg}{}{}
 
 % bibliography
 \RequirePackage[%
@@ -74,9 +63,7 @@ eprint=false]{biblatex}
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}[frame number]{}
-\setbeamertemplate{section in toc}{\tikz{\node[fill=black,text=white]{\inserttocsection};}}
-\setbeamertemplate{section in toc shaded}{\tikz{\node[fill=white]{\inserttocsection};}}
-\setbeamertemplate{bibliography item}{\textbullet}
+%\setbeamertemplate{bibliography item}{\textbullet}
 \setbeamertemplate{itemize items}{\textbullet}
 \setbeamertemplate{frametitle continuation}{}
 
