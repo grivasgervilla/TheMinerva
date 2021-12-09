@@ -10,6 +10,12 @@
 % package options
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\DeclareOption{spanish}{
+  \PassOptionsToPackage{\CurrentOption, es-tabla, es-nodecimaldot}{babel}
+}
+\DeclareOption{english}{
+  \PassOptionsToPackage{\CurrentOption}{babel}
+}
 \ProcessOptions\relax
 
 \RequirePackage{kvoptions}
@@ -23,6 +29,9 @@
 \ProcessKeyvalOptions*
 
 \LoadClass{article}
+
+%language
+\RequirePackage{babel}
 
 % bibliography
 \RequirePackage[%
@@ -44,25 +53,6 @@ eprint=false]{biblatex}
 
 \InputIfFileExists{font.cfg}{}{}
 
-% links
-
-\RequirePackage{hyperref}
-\makeatletter
-\AtBeginDocument{
-  \hypersetup{
-    pdftitle = {\@title},
-    pdfauthor = {\@author}
-  }
-}
-\makeatother
-
-\hypersetup{
-    colorlinks = true,
-    breaklinks = true,
-    allcolors = black,
-    linktoc = all
-}
-
 % todonotes
 
 \RequirePackage{todonotes}
@@ -70,29 +60,10 @@ eprint=false]{biblatex}
 
 \tikzset{notestyleraw/.append style={rounded corners = 0pt}}
 
+% Own Packages
 
-% theorems
-
-\RequirePackage{amsthm}
-\RequirePackage{thmbox}
-\RequirePackage{letltxmacro}
-
-\thmboxoptions{
-  style=S,
-  underline=false,
-  bodystyle=\normalfont\noindent,
-  headstyle=\normalfont\bfseries#1 #2 ,
-  titlestyle=\normalfont\bfseries : #1
-}
-
-\renewcommand{\proofname}{Proof}
-
-\renewenvironment{proof}
-{
-  \small
-  \proofname:
-}
-{\hfill \scriptsize$\square$\vspace{1em}}
+\RequirePackage{griger} % Common class configuration.
+\RequirePackage{grigerthm} % Theorem configuration.
 
 % TOC
 \RequirePackage[titles]{tocloft}
