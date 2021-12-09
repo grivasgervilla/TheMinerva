@@ -1,0 +1,60 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{grigerthm}[2021/11/26 A package providing several theorem-like environments in different languages]
+
+\RequirePackage{translations}
+\RequirePackage{amsthm}
+\RequirePackage{thmbox}
+\RequirePackage{letltxmacro}
+
+\DeclareTranslationFallback{theorem-name}{Theorem}
+\DeclareTranslation{English}{theorem-name}{Theorem}
+\DeclareTranslation{Spanish}{theorem-name}{Teorema}
+
+\newtheorem{theorem}{\GetTranslation{theorem-name}}
+
+\DeclareTranslationFallback{lemma-name}{Lemma}
+\DeclareTranslation{English}{lemma-name}{Lemma}
+\DeclareTranslation{Spanish}{lemma-name}{Lema}
+
+\newtheorem{lemma}{\GetTranslation{lemma-name}}
+
+\DeclareTranslationFallback{proposition-name}{Proposition}
+\DeclareTranslation{English}{proposition-name}{Proposition}
+\DeclareTranslation{Spanish}{proposition-name}{Proposición}
+
+\newtheorem{proposition}{\GetTranslation{proposition-name}}
+
+\DeclareTranslationFallback{definition-name}{Definition}
+\DeclareTranslation{English}{definition-name}{Definition}
+\DeclareTranslation{Spanish}{definition-name}{Definición}
+
+\newtheorem{definition}{\GetTranslation{definition-name}}
+
+\DeclareTranslationFallback{idea-name}{Idea}
+\DeclareTranslation{English}{idea-name}{Idea}
+\DeclareTranslation{Spanish}{idea-name}{Idea}
+
+\newtheorem{idea}{\GetTranslation{idea-name}}
+
+\DeclareTranslationFallback{notation-name}{Notation}
+\DeclareTranslation{English}{notation-name}{Notation}
+\DeclareTranslation{Spanish}{notation-name}{Notación}
+
+\newtheorem{notation}{\GetTranslation{notation-name}}
+
+\thmboxoptions{
+  style=S,
+  underline=false,
+  bodystyle=\normalfont\noindent,
+  headstyle=\normalfont\bfseries#1 #2 ,
+  titlestyle=\normalfont\bfseries : #1
+}
+
+%\renewcommand{\proofname}{Proof}
+
+\renewenvironment{proof}
+{
+  \small
+  \proofname:
+}
+{\hfill \scriptsize$\square$\vspace{1em}}
