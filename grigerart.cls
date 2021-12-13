@@ -7,14 +7,13 @@
 \RequirePackage{tikz}
 \RequirePackage{calculator}
 
-% package options
-
+% class options
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \DeclareOption{spanish}{
-  \PassOptionsToPackage{\CurrentOption, es-tabla, es-nodecimaldot}{babel}
+  \PassOptionsToPackage{\CurrentOption}{griger}
 }
 \DeclareOption{english}{
-  \PassOptionsToPackage{\CurrentOption}{babel}
+  \PassOptionsToPackage{\CurrentOption}{griger}
 }
 \ProcessOptions\relax
 
@@ -29,9 +28,6 @@
 \ProcessKeyvalOptions*
 
 \LoadClass{article}
-
-%language
-\RequirePackage{babel}
 
 % bibliography
 \RequirePackage[%

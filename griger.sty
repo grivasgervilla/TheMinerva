@@ -1,5 +1,18 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{griger}[2021/12/03 A package providing some stylistic configuration.]
+\ProvidesPackage{griger}[2021/12/13 A package providing common configuration.]
+
+% package options
+%% language options
+\DeclareOption{spanish}{
+  \PassOptionsToPackage{\CurrentOption, es-tabla, es-nodecimaldot}{babel}
+}
+\DeclareOption{english}{
+  \PassOptionsToPackage{\CurrentOption}{babel}
+}
+\ProcessOptions\relax
+
+% language
+\RequirePackage{babel}
 
 % links
 \RequirePackage[unicode, psdextra]{hyperref}

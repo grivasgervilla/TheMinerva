@@ -4,14 +4,14 @@
 % package options
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \DeclareOption{spanish}{
-  \PassOptionsToPackage{\CurrentOption}{babel}
+  \PassOptionsToPackage{\CurrentOption}{griger}
+}
+\DeclareOption{english}{
+  \PassOptionsToPackage{\CurrentOption}{griger}
 }
 \ProcessOptions\relax
 
 \LoadClass{book}
-
-% language
-\RequirePackage{babel}
 
 % bibliography
 \RequirePackage[%
