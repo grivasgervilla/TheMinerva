@@ -1,5 +1,5 @@
 # latexUtilities
-In this repository you can find some LaTeX utilities that I have create to use in my daily LaTeX workflow:
+In this repository, you can find some LaTeX utilities that I have create to use in my daily LaTeX workflow:
 
 ## Custom Classes :clipboard:
 
@@ -9,8 +9,8 @@ In this repository you can find some LaTeX utilities that I have create to use i
 
 ## Custom Packages :package:
 
-- `griger`: It a package that collects some common configuration options.
-- `grigerthm`: It a package that defines several theorem like environments with custom style in Spanish or English.
+- `griger`: It is a package that collects some common configuration options.
+- `grigerthm`: It is a package that defines several theorem like environments with custom style in Spanish or English.
 
 ## Other Configuration Files :art:
 
@@ -19,8 +19,8 @@ In this repository you can find some LaTeX utilities that I have create to use i
 
 ## Fonts :capital_abcd:
 
-In these templates I use the [STIX2 font](https://www.stixfonts.org/) from the STIX Fonts project.
+In these templates, I use the [STIX2 font](https://www.stixfonts.org/) from the STIX Fonts project.
 
-You can download the last font version archives from their [GitHub repository](https://github.com/stipub/stixfonts) and install it into your system. Then you only need to specify the folder where the font archives can be found with the `Path` option of the `fontspec` package. I use the command `kpsewhich` in a Linux shell to locate those files.
+You can download the last font version archives from their [GitHub repository](https://github.com/stipub/stixfonts) and install it into your system. Then, you only need to specify the folder where the font archives can be found with the `Path` option of the `fontspec` package. I use the command `kpsewhich` in a Linux shell to locate those files.
 
-Nowadays, I use Fira Code as the monospaced font since STIX2 has not a monospaced style.
+Nowadays, I use Fira Code as the monospaced font, since STIX2 has not a monospaced style.
