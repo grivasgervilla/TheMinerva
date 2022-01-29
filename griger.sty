@@ -13,6 +13,13 @@
 
 % language
 \RequirePackage{babel}
+\RequirePackage{csquotes}
+
+% tables
+\RequirePackage{booktabs}
+
+% translations
+\RequirePackage{translations}
 
 % links
 \RequirePackage[hidelinks, unicode, psdextra]{hyperref}
@@ -21,9 +28,43 @@
     linktoc = all
 }
 
+% listings
+\RequirePackage{listings}
+
+\DeclareTranslationFallback{algorithm-name}{Algorithm}
+\DeclareTranslation{English}{algorithm-name}{Algorithm}
+\DeclareTranslation{Spanish}{algorithm-name}{Algoritmo}
+
+\renewcommand{\lstlistingname}{\GetTranslation{algorithm-name}}
+
+\lstdefinestyle{global}{
+  basicstyle=\normalfont,
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  captionpos=b,
+  columns=fullflexible,
+  keywords = {if, for, while, exit, return},
+  keywordstyle=\itshape,
+  mathescape=true,
+  numbers=left,
+  showstringspaces=false,
+  xleftmargin=\parindent,
+}
+
+\lstset{style=global}
+
+
 % glossaries
 % The option automake is needed to generate glossaries automatically with LaTeX Workshop default recipe.
-\RequirePackage[toc, automake]{glossaries}
+\RequirePackage[acronym, toc, automake]{glossaries}
 
 % aesthetics
 \renewcommand\labelitemi{$\cdotp$} %Use vertically centered dot as first-level bullet-point.
+\renewcommand\labelitemii{$\cdotp$} %Use vertically centered dot as second-level bullet-point.
+
+% section title format
+\RequirePackage{titlesec}
+
+\titleformat{\section}{\normalfont\scshape}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\scshape}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\scshape}{\thesubsubsection}{1em}{}
