@@ -66,10 +66,6 @@ eprint=false]{biblatex}
 \renewcommand{\cftsecfont}{}
 \renewcommand{\cftsecpagefont}{}
 
-% tables
-
-\RequirePackage{booktabs}
-
 % enumitem
 
 \RequirePackage{enumitem}
