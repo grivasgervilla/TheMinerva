@@ -6,67 +6,76 @@
 %\RequirePackage{thmbox}
 \RequirePackage{letltxmacro}
 
-\DeclareTranslationFallback{theorem-name}{Theorem}
-\DeclareTranslation{English}{theorem-name}{Theorem}
-\DeclareTranslation{Spanish}{theorem-name}{Teorema}
+\newtheoremstyle{griger}%
+  {\topsep}%
+  {\topsep}%
+  {\normalfont}%
+  {}%
+  {\scshape}%
+  {\\}%
+  {0em}%
+  {}%
+\theoremstyle{griger}
 
-\newtheorem{theorem}{\GetTranslation{theorem-name}}
+\DeclareTranslationFallback{theorem-name}{theorem}
+\DeclareTranslation{English}{theorem-name}{theorem}
+\DeclareTranslation{Spanish}{theorem-name}{teorema}
 
-\DeclareTranslationFallback{lemma-name}{Lemma}
-\DeclareTranslation{English}{lemma-name}{Lemma}
-\DeclareTranslation{Spanish}{lemma-name}{Lema}
+\newtheorem{theorem}{\GetTranslation{theorem-name}}[section]
 
-\newtheorem{lemma}{\GetTranslation{lemma-name}}
+\DeclareTranslationFallback{lemma-name}{lemma}
+\DeclareTranslation{English}{lemma-name}{lemma}
+\DeclareTranslation{Spanish}{lemma-name}{lema}
 
-\DeclareTranslationFallback{proposition-name}{Proposition}
-\DeclareTranslation{English}{proposition-name}{Proposition}
-\DeclareTranslation{Spanish}{proposition-name}{Proposición}
+\newtheorem{lemma}{\GetTranslation{lemma-name}}[section]
 
-\newtheorem{proposition}{\GetTranslation{proposition-name}}
+\DeclareTranslationFallback{proposition-name}{proposition}
+\DeclareTranslation{English}{proposition-name}{proposition}
+\DeclareTranslation{Spanish}{proposition-name}{proposición}
 
-\DeclareTranslationFallback{definition-name}{Definition}
-\DeclareTranslation{English}{definition-name}{Definition}
-\DeclareTranslation{Spanish}{definition-name}{Definición}
+\newtheorem{proposition}{\GetTranslation{proposition-name}}[section]
 
-\newtheorem{definition}{\GetTranslation{definition-name}}
+\DeclareTranslationFallback{corollary-name}{corollary}
+\DeclareTranslation{English}{corollary-name}{corollary}
+\DeclareTranslation{Spanish}{corollary-name}{corolario}
 
-\DeclareTranslationFallback{idea-name}{Idea}
-\DeclareTranslation{English}{idea-name}{Idea}
-\DeclareTranslation{Spanish}{idea-name}{Idea}
+\newtheorem{corollary}{\GetTranslation{corollary-name}}[section]
 
-\newtheorem{idea}{\GetTranslation{idea-name}}
+\DeclareTranslationFallback{definition-name}{definition}
+\DeclareTranslation{English}{definition-name}{definition}
+\DeclareTranslation{Spanish}{definition-name}{definición}
 
-\DeclareTranslationFallback{notation-name}{Notation}
-\DeclareTranslation{English}{notation-name}{Notation}
-\DeclareTranslation{Spanish}{notation-name}{Notación}
+\newtheorem{definition}{\GetTranslation{definition-name}}[section]
 
-\newtheorem{notation}{\GetTranslation{notation-name}}
+\DeclareTranslationFallback{idea-name}{idea}
+\DeclareTranslation{English}{idea-name}{idea}
+\DeclareTranslation{Spanish}{idea-name}{idea}
 
-\DeclareTranslationFallback{example-name}{Example}
-\DeclareTranslation{English}{example-name}{Example}
-\DeclareTranslation{Spanish}{example-name}{Ejemplo}
+\newtheorem{idea}{\GetTranslation{idea-name}}[section]
 
-\newtheorem{example}{\GetTranslation{example-name}}
+\DeclareTranslationFallback{notation-name}{notation}
+\DeclareTranslation{English}{notation-name}{notation}
+\DeclareTranslation{Spanish}{notation-name}{notación}
 
-\DeclareTranslationFallback{counterexample-name}{Counterexample}
-\DeclareTranslation{English}{counterexample-name}{Counterexample}
-\DeclareTranslation{Spanish}{counterexample-name}{Contraejemplo}
+\newtheorem{notation}{\GetTranslation{notation-name}}[section]
 
-\newtheorem{counterexample}{\GetTranslation{counterexample-name}}
+\DeclareTranslationFallback{example-name}{example}
+\DeclareTranslation{English}{example-name}{example}
+\DeclareTranslation{Spanish}{example-name}{ejemplo}
 
-\DeclareTranslationFallback{problem-name}{Problem}
-\DeclareTranslation{English}{problem-name}{Problem}
-\DeclareTranslation{Spanish}{problem-name}{Problema}
+\newtheorem{example}{\GetTranslation{example-name}}[section]
 
-\newtheorem{problem}{\GetTranslation{problem-name}}
+\DeclareTranslationFallback{counterexample-name}{counterexample}
+\DeclareTranslation{English}{counterexample-name}{counterexample}
+\DeclareTranslation{Spanish}{counterexample-name}{contraejemplo}
 
-% \thmboxoptions{
-%   style=S,
-%   underline=false,
-%   bodystyle=\normalfont\noindent,
-%   headstyle=\normalfont\bfseries#1 #2 ,
-%   titlestyle=\normalfont\bfseries : #1
-% }
+\newtheorem{counterexample}{\GetTranslation{counterexample-name}}[section]
+
+\DeclareTranslationFallback{problem-name}{problem}
+\DeclareTranslation{English}{problem-name}{problem}
+\DeclareTranslation{Spanish}{problem-name}{problema}
+
+\newtheorem{problem}{\GetTranslation{problem-name}}[section]
 
 \renewenvironment{proof}
 {
