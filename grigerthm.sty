@@ -3,83 +3,91 @@
 
 \RequirePackage{translations}
 \RequirePackage{amsthm}
-%\RequirePackage{thmbox}
 \RequirePackage{letltxmacro}
+
+% Define numbering option according to loaded class
+\makeatletter
+\@ifclassloaded{book}{
+  \def\mynumbering{chapter}
+}
+{
+  \def\mynumbering{section}
+}
+\makeatother
 
 \newtheoremstyle{griger}%
   {\topsep}%
   {\topsep}%
   {\normalfont}%
   {}%
-  {\scshape}%
+  {\bfseries}%
   {\\}%
   {0em}%
-  {}%
+  {\thmname{#1}\thmnumber{ #2:}\thmnote{ #3}}%
 \theoremstyle{griger}
 
-\DeclareTranslationFallback{theorem-name}{theorem}
-\DeclareTranslation{English}{theorem-name}{theorem}
-\DeclareTranslation{Spanish}{theorem-name}{teorema}
+\DeclareTranslationFallback{theorem-name}{Theorem}
+\DeclareTranslation{English}{theorem-name}{Theorem}
+\DeclareTranslation{Spanish}{theorem-name}{Teorema}
 
-\newtheorem{theorem}{\GetTranslation{theorem-name}}[section]
+\newtheorem{theorem}{\GetTranslation{theorem-name}}[\mynumbering]
 
-\DeclareTranslationFallback{lemma-name}{lemma}
-\DeclareTranslation{English}{lemma-name}{lemma}
-\DeclareTranslation{Spanish}{lemma-name}{lema}
+\DeclareTranslationFallback{lemma-name}{Lemma}
+\DeclareTranslation{English}{lemma-name}{Lemma}
+\DeclareTranslation{Spanish}{lemma-name}{Lema}
 
-\newtheorem{lemma}{\GetTranslation{lemma-name}}[section]
+\newtheorem{lemma}{\GetTranslation{lemma-name}}[\mynumbering]
 
-\DeclareTranslationFallback{proposition-name}{proposition}
-\DeclareTranslation{English}{proposition-name}{proposition}
-\DeclareTranslation{Spanish}{proposition-name}{proposición}
+\DeclareTranslationFallback{proposition-name}{Proposition}
+\DeclareTranslation{English}{proposition-name}{Proposition}
+\DeclareTranslation{Spanish}{proposition-name}{Proposición}
 
-\newtheorem{proposition}{\GetTranslation{proposition-name}}[section]
+\newtheorem{proposition}{\GetTranslation{proposition-name}}[\mynumbering]
 
-\DeclareTranslationFallback{corollary-name}{corollary}
-\DeclareTranslation{English}{corollary-name}{corollary}
-\DeclareTranslation{Spanish}{corollary-name}{corolario}
+\DeclareTranslationFallback{corollary-name}{Corollary}
+\DeclareTranslation{English}{corollary-name}{Corollary}
+\DeclareTranslation{Spanish}{corollary-name}{Corolario}
 
-\newtheorem{corollary}{\GetTranslation{corollary-name}}[section]
+\newtheorem{corollary}{\GetTranslation{corollary-name}}[\mynumbering]
 
-\DeclareTranslationFallback{definition-name}{definition}
-\DeclareTranslation{English}{definition-name}{definition}
-\DeclareTranslation{Spanish}{definition-name}{definición}
+\DeclareTranslationFallback{definition-name}{Definition}
+\DeclareTranslation{English}{definition-name}{Definition}
+\DeclareTranslation{Spanish}{definition-name}{Definición}
 
-\newtheorem{definition}{\GetTranslation{definition-name}}[section]
+\newtheorem{definition}{\GetTranslation{definition-name}}[\mynumbering]
 
-\DeclareTranslationFallback{idea-name}{idea}
-\DeclareTranslation{English}{idea-name}{idea}
-\DeclareTranslation{Spanish}{idea-name}{idea}
+\DeclareTranslationFallback{idea-name}{Idea}
+\DeclareTranslation{English}{idea-name}{Idea}
+\DeclareTranslation{Spanish}{idea-name}{Idea}
 
-\newtheorem{idea}{\GetTranslation{idea-name}}[section]
+\newtheorem{idea}{\GetTranslation{idea-name}}[\mynumbering]
 
-\DeclareTranslationFallback{notation-name}{notation}
-\DeclareTranslation{English}{notation-name}{notation}
-\DeclareTranslation{Spanish}{notation-name}{notación}
+\DeclareTranslationFallback{notation-name}{Notation}
+\DeclareTranslation{English}{notation-name}{Notation}
+\DeclareTranslation{Spanish}{notation-name}{Notación}
 
-\newtheorem{notation}{\GetTranslation{notation-name}}[section]
+\newtheorem{notation}{\GetTranslation{notation-name}}[\mynumbering]
 
-\DeclareTranslationFallback{example-name}{example}
-\DeclareTranslation{English}{example-name}{example}
-\DeclareTranslation{Spanish}{example-name}{ejemplo}
+\DeclareTranslationFallback{example-name}{Example}
+\DeclareTranslation{English}{example-name}{Example}
+\DeclareTranslation{Spanish}{example-name}{Ejemplo}
 
-\newtheorem{example}{\GetTranslation{example-name}}[section]
+\newtheorem{example}{\GetTranslation{example-name}}[\mynumbering]
 
-\DeclareTranslationFallback{counterexample-name}{counterexample}
-\DeclareTranslation{English}{counterexample-name}{counterexample}
-\DeclareTranslation{Spanish}{counterexample-name}{contraejemplo}
+\DeclareTranslationFallback{counterexample-name}{Counterexample}
+\DeclareTranslation{English}{counterexample-name}{Counterexample}
+\DeclareTranslation{Spanish}{counterexample-name}{Contraejemplo}
 
-\newtheorem{counterexample}{\GetTranslation{counterexample-name}}[section]
+\newtheorem{counterexample}{\GetTranslation{counterexample-name}}[\mynumbering]
 
-\DeclareTranslationFallback{problem-name}{problem}
-\DeclareTranslation{English}{problem-name}{problem}
-\DeclareTranslation{Spanish}{problem-name}{problema}
+\DeclareTranslationFallback{problem-name}{Problem}
+\DeclareTranslation{English}{problem-name}{Problem}
+\DeclareTranslation{Spanish}{problem-name}{Problema}
 
-\newtheorem{problem}{\GetTranslation{problem-name}}[section]
+\newtheorem{problem}{\GetTranslation{problem-name}}[\mynumbering]
 
 \renewenvironment{proof}
 {
-  \small
   \proofname:
 }
 {\hfill \scriptsize$\square$\vspace{1em}}
