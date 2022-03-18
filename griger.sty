@@ -56,7 +56,7 @@
 
 % glossaries
 % The option automake is needed to generate glossaries automatically with LaTeX Workshop default recipe.
-\RequirePackage[acronym, toc, automake]{glossaries}
+%\RequirePackage[acronym, toc, automake=true]{glossaries}
 
 % aesthetics
 \renewcommand\labelitemi{$\cdotp$} %Use vertically centered dot as first-level bullet-point.
@@ -65,7 +65,7 @@
 % section title format
 \RequirePackage{titlesec}
 
-\titleformat{\section}{\normalfont\scshape}{\thesection}{1em}{}
-\titleformat{\subsection}{\normalfont\scshape}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}{\normalfont\scshape}{\thesubsubsection}{1em}{}
-\titleformat{\paragraph}{\normalfont\scshape}{}{1em}{}
+\titleformat{\section}{\bfseries\scshape}{\thesection}{1em}{}
+\titleformat{\subsection}{\bfseries\scshape}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\bfseries\scshape}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}{\bfseries\scshape}{}{1em}{}
