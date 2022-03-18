@@ -5,7 +5,7 @@ In this repository, you can find some LaTeX utilities that I have create to use 
 
 |Class Name|Description|
 |---|---|
-:books: `grigerbok| It is a class that inherits from the `book` class. I will use this class to create any scientific book that I want to write or my PhD thesis.|
+:books: `grigerbok`| It is a class that inherits from the `book` class. I will use this class to create any scientific book that I want to write or my PhD thesis.|
 :page_facing_up: `grigerart`|It is a class that inherits from the `article` class. This class can be used for any article or standard document that you need to write.|
 |:tv: `grigersli`| It is a class that inherits from the `beamer` class. I use this class to create any slides that I have to use for teaching or for a presentation in a conference.|
 
