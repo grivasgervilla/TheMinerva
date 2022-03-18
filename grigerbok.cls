@@ -23,7 +23,9 @@ sortcites=true,
 isbn=false,
 url=false,
 doi=false,
-eprint=false]{biblatex}
+date=year,
+eprint=false,
+maxbibnames=99]{biblatex}
 
 \AtEveryBibitem{%
 \clearlist{language}%
