@@ -1,16 +1,21 @@
 # latexUtilities
 In this repository, you can find some LaTeX utilities that I have create to use in my daily LaTeX workflow:
 
-## Custom Classes :clipboard:
+## :package: Clases
 
-- `grigerart`: It is a class that inherits from the base `article`. This class can be use for any article or standard document that you need to write.
-- `grigersli`: It is a class that inherits from the `beamer` class. I use this class to create any slides that I have to use for teaching or for a presentation in a conference.
-- `grigerbok`: It is a class that inherits from the `book` class. I will use this class to create any scientific book that I want to write or my PhD thesis.
+|Class Name|Description|
+|---|---|
+:books: `grigerbok| It is a class that inherits from the `book` class. I will use this class to create any scientific book that I want to write or my PhD thesis.|
+:page_facing_up: `grigerart`|It is a class that inherits from the `article` class. This class can be used for any article or standard document that you need to write.|
+|:tv: `grigersli`| It is a class that inherits from the `beamer` class. I use this class to create any slides that I have to use for teaching or for a presentation in a conference.|
 
-## Custom Packages :package:
+## :clipboard: Packages
 
-- `griger`: It is a package that collects some common configuration options.
-- `grigerthm`: It is a package that defines several theorem like environments with custom style in Spanish or English.
+| Class Name | Description |
+| --- | --- |
+|:bank: `griger`| It is a package that collects some common configuration options.|
+|:symbols: `grigerthm`|It is a package that defines several theorem like environments with custom style in Spanish or English.|
+
 
 ## Other Configuration Files :art:
 
