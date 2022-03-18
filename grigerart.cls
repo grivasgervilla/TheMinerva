@@ -80,11 +80,5 @@ eprint=false]{biblatex}
   {}{}% <success><failure>
 \makeatother
 
-% sections
-
-\RequirePackage{sectsty}
-\allsectionsfont{\normalfont\normalsize\bfseries}
-
 % appendices
-
 \RequirePackage[page, toc, titletoc, title]{appendix}
