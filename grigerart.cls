@@ -17,16 +17,6 @@
 }
 \ProcessOptions\relax
 
-\RequirePackage{kvoptions}
-\DeclareStringOption[0]{hue}
-\DeclareStringOption[0.3]{sdrawing}
-\DeclareStringOption[1]{bdrawing}
-\DeclareStringOption[0.3]{stext}
-\DeclareStringOption[0.4]{btext}
-\DeclareStringOption[1]{sline}
-\DeclareStringOption[0.5]{bline}
-\ProcessKeyvalOptions*
-
 \LoadClass{article}
 
 % bibliography
@@ -39,45 +29,55 @@ sortcites=true,
 isbn=false,
 url=false,
 doi=false,
-eprint=false]{biblatex}
+date=year,
+eprint=false,
+maxbibnames=99]{biblatex}
 
 \AtEveryBibitem{%
   \clearlist{language}%
 }
 
-% fonts and symbols
-
-\InputIfFileExists{font.cfg}{}{}
-
 % todonotes
-
 \RequirePackage{todonotes}
 \setuptodonotes{linecolor = lightgray, bordercolor = lightgray, backgroundcolor = white, figcolor = white, size = \footnotesize}
 
 \tikzset{notestyleraw/.append style={rounded corners = 0pt}}
 
 % Own Packages
-
 \RequirePackage{griger} % Common class configuration.
 \RequirePackage{grigerthm} % Theorem configuration.
 
 % TOC
 \RequirePackage[titles]{tocloft}
-\renewcommand{\cftsecfont}{}
-\renewcommand{\cftsecpagefont}{}
+\renewcommand{\cftsecfont}{\sffamily}
+\renewcommand{\cftsecpagefont}{\sffamily}
 
 % enumitem
 
 \RequirePackage{enumitem}
 
-% title
+% margins
+\usepackage[top=2.54cm, bottom=2.54cm, left=2.54cm, right=2.54cm]{geometry}
 
-\RequirePackage{etoolbox}
+%page numbers
+\let\oldthepage\thepage
+\renewcommand*\thepage{\sffamily \oldthepage}
+
+% titlepage
+
 \makeatletter
-\patchcmd{\@maketitle}% <cmd>
-  {\@title}% <search>
-  {\scshape\@title \\ \color{black}\rule{\textwidth}{1pt}}% <replace>
-  {}{}% <success><failure>
+\def\@maketitle{%
+  \begin{center}
+    {\large\bfseries\sffamily \@title \par}%
+    \vskip 1em%
+    {\color{blue}\rule{\textwidth}{1pt}}%
+    \vskip 1em%
+    {\normalsize\bfseries\sffamily\@author \par}%
+    {\normalsize\bfseries\sffamily\@date \par}%
+  \end{center}%
+  \par
+  \vskip 1em%
+}
 \makeatother
 
 % appendices

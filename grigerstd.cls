@@ -15,3 +15,5 @@
 
 % fonts and symbols
 \InputIfFileExists{font.cfg}{}{}
+
+\RequirePackage{griger} % Common class configuration.

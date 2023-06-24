@@ -34,6 +34,9 @@ maxbibnames=99]{biblatex}
 % fonts and symbols
 \InputIfFileExists{font.cfg}{}{}
 
+% margins
+\usepackage[top=2.54cm, bottom=2.54cm, left=2.54cm, right=2.54cm]{geometry}
+
 
 % Own packages
 \RequirePackage{griger} % Common class configuration.

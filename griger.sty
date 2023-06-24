@@ -11,6 +11,12 @@
 }
 \ProcessOptions\relax
 
+%fonts
+\InputIfFileExists{grigerfont.sty}{}{}
+
+%colors
+\InputIfFileExists{grigercolor.sty}{}{}
+
 % language
 \RequirePackage{babel}
 \RequirePackage{csquotes}
@@ -22,11 +28,17 @@
 \RequirePackage{translations}
 
 % links
-\RequirePackage[hidelinks, unicode, psdextra]{hyperref}
+\makeatletter
+\@ifclassloaded{beamer}{}
+{
+  \RequirePackage[hidelinks, unicode, psdextra]{hyperref}
 
-\hypersetup{
-    linktoc = all
+  \hypersetup{
+      linktoc = all
+  }
 }
+\makeatother
+
 
 % listings
 \RequirePackage{listings}
@@ -63,9 +75,14 @@
 \renewcommand\labelitemii{$\cdotp$} %Use vertically centered dot as second-level bullet-point.
 
 % section title format
-\RequirePackage{titlesec}
+\makeatletter
+\@ifclassloaded{beamer}{}
+{
+  \RequirePackage{titlesec}
 
-\titleformat{\section}{\bfseries\scshape}{\thesection}{1em}{}
-\titleformat{\subsection}{\bfseries\scshape}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}{\bfseries\scshape}{\thesubsubsection}{1em}{}
-\titleformat{\paragraph}{\bfseries\scshape}{}{1em}{}
+  \titleformat{\section}{\bfseries\sffamily}{\thesection}{1em}{}
+  \titleformat{\subsection}{\bfseries\sffamily}{\thesubsection}{1em}{}
+  \titleformat{\subsubsection}{\bfseries\sffamily}{\thesubsubsection}{1em}{}
+  \titleformat{\paragraph}{\bfseries}{}{1em}{}
+}
+\makeatother

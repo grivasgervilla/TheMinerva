@@ -3,19 +3,25 @@
 
 % pictures and colors
 \RequirePackage[rgb]{xcolor}
+\RequirePackage[dvips,xetex]{graphicx}
 \RequirePackage{tikz}
 \RequirePackage{calculator}
 
 % package options
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
+\DeclareOption{spanish}{
+  \PassOptionsToPackage{\CurrentOption}{griger}
+}
+\DeclareOption{english}{
+  \PassOptionsToPackage{\CurrentOption}{griger}
+}
 \ProcessOptions\relax
 
-\LoadClass[xcolor=rgb, aspecratio=43, usenames, dvipsnames]{beamer}
+\LoadClass[xcolor=rgb, aspecratio=43, usenames, dvipsnames, notheorems]{beamer}
 \usefonttheme{serif}
 
 % graphics
-\RequirePackage{graphicx}
-\RequirePackage{graphbox}
+%\RequirePackage{graphbox}
 
 % tables
 \RequirePackage{booktabs}
@@ -23,6 +29,10 @@
 % fonts and symbols
 
 \InputIfFileExists{font.cfg}{}{}
+
+% custom packages
+\RequirePackage{griger} % Common class configuration.
+\RequirePackage{grigerthm} % Theorem configuration.
 
 % bibliography
 \RequirePackage[%
@@ -32,8 +42,9 @@ citestyle=numeric-comp,
 sorting=nyt,
 sortcites=true,
 isbn=false,
-url=true,
+url=false,
 doi=false,
+maxnames=999,
 eprint=false]{biblatex}
 
 \AtEveryBibitem{%
@@ -48,7 +59,6 @@ eprint=false]{biblatex}
 \setbeamercolor{structure}{fg = black}
 \setbeamercolor{section in toc}{fg = black, bg = yellow}
 \setbeamercolor{section in toc shaded}{fg = black}
-\setbeamercolor{block body}{bg = black, fg = white}
 \setbeamercolor{bibliography entry note}{fg = black}
 
 % beamer fonts
@@ -64,6 +74,7 @@ eprint=false]{biblatex}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}[frame number]{}
 %\setbeamertemplate{bibliography item}{\textbullet}
+\setbeamertemplate{theorems}[numbered]
 \setbeamertemplate{itemize items}{\textbullet}
 \setbeamertemplate{frametitle continuation}{}
 
@@ -71,9 +82,9 @@ eprint=false]{biblatex}
 
 %\addtobeamertemplate{block begin}{\vskip -\bigskipamount}{}
 %\addtobeamertemplate{block end}{}{\vskip -\smallskipamount}
-\addtobeamertemplate{block begin}{%
-  \setbeamercolor*{item}{fg=white}%
-}{}
+% \addtobeamertemplate{block begin}{%
+%   \setbeamercolor*{item}{fg=white}%
+% }{}
 
 % beamer setup
 \AtBeginSection[]{
