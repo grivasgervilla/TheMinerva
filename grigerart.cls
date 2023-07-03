@@ -51,6 +51,13 @@ maxbibnames=99]{biblatex}
 \RequirePackage[titles]{tocloft}
 \renewcommand{\cftsecfont}{\sffamily}
 \renewcommand{\cftsecpagefont}{\sffamily}
+\renewcommand{\cftsubsecfont}{\sffamily}
+\renewcommand{\cftsubsecpagefont}{\sffamily}
+\renewcommand{\cftsubsubsecfont}{\sffamily}
+\renewcommand{\cftsubsubsecpagefont}{\sffamily}
+\renewcommand{\cftsubsecdotsep}{\cftnodots}
+\renewcommand{\cftsubsubsecdotsep}{\cftnodots}
+
 
 % enumitem
 
@@ -68,9 +75,9 @@ maxbibnames=99]{biblatex}
 \makeatletter
 \def\@maketitle{%
   \begin{center}
-    {\large\bfseries\sffamily \@title \par}%
+    {\large\bfseries\sffamily\scshape \@title \par}%
     \vskip 1em%
-    {\color{blue}\rule{\textwidth}{1pt}}%
+    {\rule{\textwidth}{0.5pt}}%
     \vskip 1em%
     {\normalsize\bfseries\sffamily\@author \par}%
     {\normalsize\bfseries\sffamily\@date \par}%

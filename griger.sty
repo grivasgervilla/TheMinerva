@@ -24,6 +24,10 @@
 % tables
 \RequirePackage{booktabs}
 
+%captions
+\RequirePackage{caption}
+\captionsetup{labelfont={sf}, labelsep=space}
+
 % translations
 \RequirePackage{translations}
 
@@ -80,9 +84,9 @@
 {
   \RequirePackage{titlesec}
 
-  \titleformat{\section}{\bfseries\sffamily}{\thesection}{1em}{}
+  \titleformat{\section}{\bfseries\sffamily}{\thesection}{1em}{\scshape}
   \titleformat{\subsection}{\bfseries\sffamily}{\thesubsection}{1em}{}
-  \titleformat{\subsubsection}{\bfseries\sffamily}{\thesubsubsection}{1em}{}
-  \titleformat{\paragraph}{\bfseries}{}{1em}{}
+  \titleformat{\subsubsection}{\sffamily}{\thesubsubsection}{1em}{}
+  \titleformat{\paragraph}{\sffamily}{}{1em}{}
 }
 \makeatother
