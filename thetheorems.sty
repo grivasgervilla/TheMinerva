@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{grigerthm}[2021/11/26 A package providing several theorem-like environments in different languages]
+\ProvidesPackage{thetheorems}[2023/07/26 A package providing several theorem-like environments in different languages for the Minerva project.]
 
 \RequirePackage{translations}
 \RequirePackage{amsthm}
@@ -15,7 +15,7 @@
 }
 \makeatother
 
-\newtheoremstyle{griger}%
+\newtheoremstyle{thetheoremstyle}%
   {\topsep}%
   {\topsep}%
   {\normalfont}%
@@ -24,7 +24,7 @@
   {\\}%
   { }%
   {\thmname{#1} \thmnumber{#2} \thmnote{#3}}%
-\theoremstyle{griger}
+\theoremstyle{thetheoremstyle}
 
 \DeclareTranslationFallback{theorem-name}{Theorem}
 \DeclareTranslation{English}{theorem-name}{Theorem}

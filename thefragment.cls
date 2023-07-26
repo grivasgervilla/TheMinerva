@@ -1,19 +1,16 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{grigerstd}[2022/01/10 Griger's class standalone]
+\ProvidesClass{thefragment}[2023/07/26 Minerva project's standalone class.]
 
 % package options
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{standalone}}
 \DeclareOption{spanish}{
-  \PassOptionsToPackage{\CurrentOption}{griger}
+  \PassOptionsToPackage{\CurrentOption}{thebasis}
 }
 \DeclareOption{english}{
-  \PassOptionsToPackage{\CurrentOption}{griger}
+  \PassOptionsToPackage{\CurrentOption}{thebasis}
 }
 \ProcessOptions\relax
 
 \LoadClass{standalone}
-
-% fonts and symbols
-\InputIfFileExists{font.cfg}{}{}
 
 \RequirePackage{griger} % Common class configuration.

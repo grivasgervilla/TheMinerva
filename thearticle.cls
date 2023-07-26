@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{grigerart}[2020/03/12 Griger's class for articles.]
+\ProvidesClass{thearticle}[2023/07/26 Minerva project's article class.]
 
 
 % pictures and colors
@@ -10,10 +10,10 @@
 % class options
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \DeclareOption{spanish}{
-  \PassOptionsToPackage{\CurrentOption}{griger}
+  \PassOptionsToPackage{\CurrentOption}{thebasis}
 }
 \DeclareOption{english}{
-  \PassOptionsToPackage{\CurrentOption}{griger}
+  \PassOptionsToPackage{\CurrentOption}{thebasis}
 }
 \ProcessOptions\relax
 
@@ -44,8 +44,8 @@ maxbibnames=99]{biblatex}
 \tikzset{notestyleraw/.append style={rounded corners = 0pt}}
 
 % Own Packages
-\RequirePackage{griger} % Common class configuration.
-\RequirePackage{grigerthm} % Theorem configuration.
+\RequirePackage{thebasis} % Common class configuration.
+\RequirePackage{thetheorems} % Theorem configuration.
 
 % TOC
 \RequirePackage[titles]{tocloft}

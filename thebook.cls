@@ -1,13 +1,13 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{grigerbok}[2021/11/26 Griger's class for books or thesis.]
+\ProvidesClass{thebook}[2021/11/26 Minerva project's book class.]
 
 % package options
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \DeclareOption{spanish}{
-  \PassOptionsToPackage{\CurrentOption}{griger}
+  \PassOptionsToPackage{\CurrentOption}{thebasis}
 }
 \DeclareOption{english}{
-  \PassOptionsToPackage{\CurrentOption}{griger}
+  \PassOptionsToPackage{\CurrentOption}{thebasis}
 }
 \ProcessOptions\relax
 
@@ -31,14 +31,11 @@ maxbibnames=99]{biblatex}
 \clearlist{language}%
 }
 
-% fonts and symbols
-\InputIfFileExists{font.cfg}{}{}
-
 % margins
 \usepackage[top=2.54cm, bottom=2.54cm, left=2.54cm, right=2.54cm]{geometry}
 
 
 % Own packages
-\RequirePackage{griger} % Common class configuration.
-\RequirePackage{grigerthm} % Theorems configuration.
+\RequirePackage{thebasis} % Common class configuration.
+\RequirePackage{thetheorems} % Theorems configuration.
 

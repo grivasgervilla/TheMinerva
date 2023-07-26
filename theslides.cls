@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{grigersli}[2020/06/22 Griger's class for slides.]
+\ProvidesClass{theslides}[2023/07/26 Minerva project's slide class.]
 
 % pictures and colors
 \RequirePackage[rgb]{xcolor}
@@ -10,10 +10,10 @@
 % package options
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
 \DeclareOption{spanish}{
-  \PassOptionsToPackage{\CurrentOption}{griger}
+  \PassOptionsToPackage{\CurrentOption}{thebasis}
 }
 \DeclareOption{english}{
-  \PassOptionsToPackage{\CurrentOption}{griger}
+  \PassOptionsToPackage{\CurrentOption}{thebasis}
 }
 \ProcessOptions\relax
 
@@ -26,13 +26,9 @@
 % tables
 \RequirePackage{booktabs}
 
-% fonts and symbols
-
-\InputIfFileExists{font.cfg}{}{}
-
 % custom packages
-\RequirePackage{griger} % Common class configuration.
-\RequirePackage{grigerthm} % Theorem configuration.
+\RequirePackage{thebasis} % Common class configuration.
+\RequirePackage{thetheorems} % Theorem configuration.
 
 % bibliography
 \RequirePackage[%

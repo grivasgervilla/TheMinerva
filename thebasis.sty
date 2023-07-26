@@ -1,5 +1,5 @@
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{griger}[2021/12/13 A package providing common configuration.]
+\NeedsTeXFormat{LaTeX2e}/
+\ProvidesPackage{thebasis}[2023/07/26 A package providing common configuration.]
 
 % package options
 %% language options
@@ -12,10 +12,10 @@
 \ProcessOptions\relax
 
 %fonts
-\InputIfFileExists{grigerfont.sty}{}{}
+\InputIfFileExists{thefonts.sty}{}{}
 
 %colors
-\InputIfFileExists{grigercolor.sty}{}{}
+\InputIfFileExists{thecolor.sty}{}{}
 
 % language
 \RequirePackage{babel}
