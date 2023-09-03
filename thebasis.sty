@@ -1,4 +1,4 @@
-\NeedsTeXFormat{LaTeX2e}/
+\NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{thebasis}[2023/07/26 A package providing common configuration.]
 
 % package options
@@ -24,9 +24,15 @@
 % tables
 \RequirePackage{booktabs}
 
+% floats
+\RequirePackage{subcaption}
+
 %captions
 \RequirePackage{caption}
 \captionsetup{labelfont={sf}, labelsep=space}
+
+% columns
+\RequirePackage{multicol}
 
 % translations
 \RequirePackage{translations}
@@ -77,6 +83,9 @@
 % aesthetics
 \renewcommand\labelitemi{$\cdotp$} %Use vertically centered dot as first-level bullet-point.
 \renewcommand\labelitemii{$\cdotp$} %Use vertically centered dot as second-level bullet-point.
+
+% math
+\RequirePackage{xfrac}
 
 % section title format
 \makeatletter
