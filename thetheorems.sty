@@ -98,8 +98,14 @@
 
 \newtheorem{exercise}{\GetTranslation{exercise-name}}[\mynumbering]
 
+\DeclareTranslationFallback{scenario-name}{Scenario}
+\DeclareTranslation{English}{scenario-name}{Scenario}
+\DeclareTranslation{Spanish}{scenario-name}{Escenario}
+
+\newtheorem{scenario}{\GetTranslation{scenario-name}}[\mynumbering]
+
 \renewenvironment{proof}
 {
   \proofname:
 }
-{\hfill \scriptsize$\square$\vspace{1em}}
+{\hfill \scriptsize$\mdwhtsquare$\vspace{1em}}
