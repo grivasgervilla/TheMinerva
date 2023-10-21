@@ -88,14 +88,17 @@
 \RequirePackage{xfrac}
 
 % section title format
+\setcounter{secnumdepth}{5} % Add numbering to paragraph level.
+
 \makeatletter
 \@ifclassloaded{beamer}{}
 {
   \RequirePackage{titlesec}
 
-  \titleformat{\section}{\bfseries\sffamily}{\thesection}{1em}{\scshape}
-  \titleformat{\subsection}{\bfseries\sffamily}{\thesubsection}{1em}{}
-  \titleformat{\subsubsection}{\sffamily}{\thesubsubsection}{1em}{}
-  \titleformat{\paragraph}{\sffamily}{}{1em}{}
+  \titleformat{\section}{\bfseries\sffamily\large}{\thesection}{1em}{\scshape}
+  \titleformat{\subsection}{\bfseries\sffamily}{\thesubsection}{1em}{\scshape}
+  \titleformat{\subsubsection}{\sffamily}{\thesubsubsection}{1em}{\scshape}
+  \titleformat{\paragraph}{\sffamily}{\theparagraph}{1em}{}
+  \titleformat{\subparagraph}{\sffamily}{}{1em}{}
 }
 \makeatother
