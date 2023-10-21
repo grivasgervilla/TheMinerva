@@ -17,11 +17,9 @@
 }
 \ProcessOptions\relax
 
-\LoadClass[xcolor=rgb, aspecratio=43, usenames, dvipsnames, notheorems]{beamer}
-\usefonttheme{serif}
+\LoadClass[xcolor=rgb, usenames, dvipsnames, notheorems]{beamer}
 
-% graphics
-%\RequirePackage{graphbox}
+%\geometry{top=0.5cm, bottom=0.5cm, left=0.5cm, right=0.5cm}
 
 % tables
 \RequirePackage{booktabs}
@@ -91,7 +89,7 @@ eprint=false]{biblatex}
 
 \AtBeginSubsection[]{
   \begin{frame}[noframenumbering,plain]
-    \tableofcontents[currentsection,currentsubsection]
+    \tableofcontents[currentsection, subsectionstyle=show/shaded/hide]
   \end{frame}
 }
 
