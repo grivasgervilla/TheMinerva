@@ -77,8 +77,6 @@ maxbibnames=99]{biblatex}
   \begin{center}
     {\large\bfseries\sffamily\scshape \@title \par}%
     \vskip 1em%
-    {\rule{\textwidth}{0.5pt}}%
-    \vskip 1em%
     {\normalsize\bfseries\sffamily\@author \par}%
     {\normalsize\bfseries\sffamily\@date \par}%
   \end{center}%
