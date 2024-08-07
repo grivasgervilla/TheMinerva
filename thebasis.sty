@@ -4,7 +4,7 @@
 % package options
 %% language options
 \DeclareOption{spanish}{
-  \PassOptionsToPackage{\CurrentOption, es-tabla, es-nodecimaldot}{babel}
+  \PassOptionsToPackage{\CurrentOption, es-noindentfirst, es-tabla, es-nodecimaldot}{babel}
 }
 \DeclareOption{english}{
   \PassOptionsToPackage{\CurrentOption}{babel}
@@ -24,13 +24,21 @@
 % tables
 \RequirePackage{booktabs}
 
+% enumitem
+\RequirePackage{enumitem}
+\setlist[enumerate]{font=\sffamily}
+\setlist[enumerate,1]{label=\arabic*., ref =\arabic*}
+\setlist[enumerate,2]{label=\alph*., ref =\theenumi.\alph*}
+\setlist[enumerate,3]{label=\arabic*., ref =\theenumii.\arabic*}
+\setlist[itemize]{align=parleft,left=0pt..1em}
+
 % floats
 \RequirePackage{float}
 \RequirePackage{subcaption}
 
 %captions
 \RequirePackage{caption}
-\captionsetup{labelfont={sf}, labelsep=space}
+\captionsetup{labelfont={sf}, labelsep=period}
 
 % columns
 \RequirePackage{multicol}
@@ -42,9 +50,11 @@
 \makeatletter
 \@ifclassloaded{beamer}{}
 {
-  \RequirePackage[hidelinks, unicode, psdextra]{hyperref}
+  \RequirePackage[unicode, psdextra]{hyperref}
 
   \hypersetup{
+      colorlinks,
+      allcolors={gray},
       linktoc = all
   }
 }
@@ -85,6 +95,8 @@
 \renewcommand\labelitemi{$\cdotp$} %Use vertically centered dot as first-level bullet-point.
 \renewcommand\labelitemii{$\cdotp$} %Use vertically centered dot as second-level bullet-point.
 
+\renewcommand*\footnoterule{} % Remove footnote separator line.
+
 % math
 \RequirePackage{xfrac}
 
@@ -94,11 +106,11 @@
 \makeatletter
 \@ifclassloaded{beamer}{}
 {
-  \RequirePackage{titlesec}
+  \RequirePackage[noindentafter]{titlesec}
 
-  \titleformat{\section}{\bfseries\sffamily\large}{\thesection}{1em}{\scshape}
-  \titleformat{\subsection}{\bfseries\sffamily}{\thesubsection}{1em}{\scshape}
-  \titleformat{\subsubsection}{\sffamily}{\thesubsubsection}{1em}{\scshape}
+  \titleformat{\section}{\Large\bfseries\sffamily}{\thesection}{1em}{}
+  \titleformat{\subsection}{\large\bfseries\sffamily}{\thesubsection}{1em}{}
+  \titleformat{\subsubsection}{\bfseries\sffamily}{\thesubsubsection}{1em}{}
   \titleformat{\paragraph}{\sffamily}{\theparagraph}{1em}{}
   \titleformat{\subparagraph}{\sffamily}{}{1em}{}
 }
