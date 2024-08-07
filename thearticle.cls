@@ -58,13 +58,9 @@ maxbibnames=99]{biblatex}
 \renewcommand{\cftsubsecdotsep}{\cftnodots}
 \renewcommand{\cftsubsubsecdotsep}{\cftnodots}
 
-
-% enumitem
-
-\RequirePackage{enumitem}
-
-% margins
-\usepackage[top=2.54cm, bottom=2.54cm, left=2.54cm, right=2.54cm]{geometry}
+% margins and indentation
+\usepackage[top=2.54cm, bottom=2.54cm, left=1.91cm, right=1.91cm]{geometry}
+%\setlength{\parindent}{0pt}
 
 %page numbers
 \let\oldthepage\thepage
@@ -75,10 +71,10 @@ maxbibnames=99]{biblatex}
 \makeatletter
 \def\@maketitle{%
   \begin{center}
-    {\large\bfseries\sffamily\scshape \@title \par}%
+    {\huge\bfseries\sffamily \@title \par}%
     \vskip 1em%
-    {\normalsize\bfseries\sffamily\@author \par}%
-    {\normalsize\bfseries\sffamily\@date \par}%
+    {\Large\bfseries\sffamily\@author \par}%
+    {\Large\bfseries\sffamily\@date \par}%
   \end{center}%
   \par
   \vskip 1em%
