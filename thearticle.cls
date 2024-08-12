@@ -19,20 +19,6 @@
 
 \LoadClass{article}
 
-% bibliography
-\RequirePackage[%
-backend=bibtex,
-bibstyle=numeric,
-citestyle=numeric-comp,
-sorting=nyt,
-sortcites=true,
-isbn=false,
-url=false,
-doi=false,
-date=year,
-eprint=false,
-maxbibnames=99]{biblatex}
-
 \AtEveryBibitem{%
   \clearlist{language}%
 }
