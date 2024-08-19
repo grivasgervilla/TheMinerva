@@ -104,8 +104,20 @@
 
 \newtheorem{scenario}{\GetTranslation{scenario-name}}[\mynumbering]
 
+\DeclareTranslationFallback{law-name}{Law}
+\DeclareTranslation{English}{law-name}{Law}
+\DeclareTranslation{Spanish}{law-name}{Regla}
+
+\newtheorem{law}{\GetTranslation{law-name}}[\mynumbering]
+
+\DeclareTranslationFallback{note-name}{Remark}
+\DeclareTranslation{English}{note-name}{Remark}
+\DeclareTranslation{Spanish}{note-name}{Nota}
+
+\newtheorem{note}{\GetTranslation{note-name}}[\mynumbering]
+
 \renewenvironment{proof}
 {
-  \proofname:
+  \textbf{\proofname:}
 }
 {\hfill \scriptsize$\mdwhtsquare$\vspace{1em}}
