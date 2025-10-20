@@ -19,8 +19,6 @@
 
 \LoadClass[xcolor=rgb, usenames, dvipsnames, notheorems]{beamer}
 
-%\geometry{top=0.5cm, bottom=0.5cm, left=0.5cm, right=0.5cm}
-
 % tables
 \RequirePackage{booktabs}
 
@@ -28,49 +26,58 @@
 \RequirePackage{thebasis} % Common class configuration.
 \RequirePackage{thetheorems} % Theorem configuration.
 
-% bibliography
-\RequirePackage[%
-backend=bibtex,
-bibstyle=numeric,
-citestyle=numeric-comp,
-sorting=nyt,
-sortcites=true,
-isbn=false,
-url=false,
-doi=false,
-maxnames=999,
-eprint=false]{biblatex}
-
-\AtEveryBibitem{%
-  \clearlist{language}%
-}
-
-
 % beamer colours
 
 \setbeamercolor{title}{fg = black}
-\setbeamercolor{titlelike}{fg = black}
+\setbeamercolor{frametitle}{fg = lightgray}
 \setbeamercolor{structure}{fg = black}
 \setbeamercolor{section in toc}{fg = black, bg = yellow}
 \setbeamercolor{section in toc shaded}{fg = black}
+\setbeamercolor{subsubsection in toc shaded}{fg = lightgray}
 \setbeamercolor{bibliography entry note}{fg = black}
+\setbeamercolor{page number in head/foot}{fg=lightgray}
+\setbeamercolor{block title}{fg=black,bg=block-background}
+\setbeamercolor{block body}{fg=black,bg=block-background}
 
 % beamer fonts
-
-\setbeamerfont{title}{series = \scshape, parent = structure}
-\setbeamerfont{frametitle}{series = \scshape, parent = structure}
-\setbeamerfont{section in toc}{series = \scshape, parent = structure}
+\setbeamerfont{title}{size=\Huge}
+\setbeamerfont{author}{size=\large}
+\setbeamerfont{frametitle}{size=\small, parent = structure}
+\setbeamerfont{section in toc}{parent = structure, series=\bf, size = \normalsize}
+\setbeamerfont{subsection in toc}{parent = structure, size = \normalsize}
+\setbeamerfont{subsubsection in toc}{parent = structure, size = \normalsize}
+\setbeamerfont{block title}{parent = structure, series=\bf}
 \setbeamerfont{footline}{size = \fontsize{10}{11}\selectfont}
+\setbeamerfont{page number in head/foot}{size=\small}
 
 % beamer templates
 
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}[frame number]{}
-%\setbeamertemplate{bibliography item}{\textbullet}
+\setbeamertemplate{blocks}[rounded]
 \setbeamertemplate{theorems}[numbered]
 \setbeamertemplate{itemize items}{\textbullet}
 \setbeamertemplate{frametitle continuation}{}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+\setbeamertemplate{frametitle}{
+  \vspace{0.5em}
+  \insertframetitle
+  \vspace{0.25em}
+  {\usebeamercolor[fg]{frametitle}\hrule}
+  \vspace{0.5em}
+}
+
+\setbeamertemplate{footline}{
+  \hfill%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \setbeamertemplate{page number in head/foot}[framenumber]%
+  \usebeamertemplate*{page number in head/foot}\kern1em%
+  \vspace{0.2cm}
+}
+
 
 %% remove additional spacing before and after block environment
 
@@ -83,13 +90,24 @@ eprint=false]{biblatex}
 % beamer setup
 \AtBeginSection[]{
   \begin{frame}[noframenumbering,plain]
-    \tableofcontents[currentsection,hideallsubsections]
+    \tableofcontents[
+      currentsection,
+      subsectionstyle=show/show/hide,
+      subsubsectionstyle=hide,
+      sectionstyle=show/shaded
+    ]
   \end{frame}
 }
 
 \AtBeginSubsection[]{
   \begin{frame}[noframenumbering,plain]
-    \tableofcontents[currentsection, subsectionstyle=show/shaded/hide]
+    \tableofcontents[currentsection, subsectionstyle=show/shaded/hide, subsubsectionstyle=show/show/hide/hide]
+  \end{frame}
+}
+
+\AtBeginSubsubsection[]{
+  \begin{frame}[noframenumbering,plain]
+    \tableofcontents[currentsection, subsectionstyle=show/shaded/hide, subsubsectionstyle=show/shaded/hide/hide]
   \end{frame}
 }
 
@@ -101,7 +119,7 @@ eprint=false]{biblatex}
 \newtcbox{\whitebox}[1][white]{arc=0pt, colback = white}
 
 \renewcommand{\alert}[1]{
-  \hspace{-2pt}\alertbox{\textcolor{white}{#1}}\hspace{-2pt}
+  \textbf{#1}
 }
 
 % remove date
@@ -109,3 +127,5 @@ eprint=false]{biblatex}
 
 % code
 \RequirePackage{listings}
+
+

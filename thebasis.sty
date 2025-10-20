@@ -1,15 +1,19 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{thebasis}[2023/07/26 A package providing common configuration.]
 
+
 % package options
 %% language options
 \DeclareOption{spanish}{
-  \PassOptionsToPackage{\CurrentOption, es-noindentfirst, es-tabla, es-nodecimaldot}{babel}
+  \PassOptionsToPackage{\CurrentOption, es-noindentfirst, es-nodecimaldot}{babel}
 }
 \DeclareOption{english}{
   \PassOptionsToPackage{\CurrentOption}{babel}
 }
 \ProcessOptions\relax
+
+
+\RequirePackage{thetheorems} % Theorem configuration.
 
 %fonts
 \InputIfFileExists{thefonts.sty}{}{}
@@ -24,8 +28,8 @@
 % bibliography
 \RequirePackage[%
 backend=bibtex,
-bibstyle=numeric,
-citestyle=numeric-comp,
+bibstyle=alphabetic,
+citestyle=alphabetic,
 sorting=nyt,
 sortcites=true,
 isbn=false,
@@ -33,7 +37,11 @@ url=false,
 doi=false,
 date=year,
 eprint=false,
-maxbibnames=99]{biblatex}
+maxbibnames=5]{biblatex}
+
+\AtEveryBibitem{%
+  \clearlist{language}%
+}
 
 % tables
 \RequirePackage{booktabs}
@@ -50,9 +58,26 @@ maxbibnames=99]{biblatex}
 \RequirePackage{float}
 \RequirePackage{subcaption}
 
+% TOC
+\@ifclassloaded{beamer}{}
+{
+  \RequirePackage[titles]{tocloft}
+  \renewcommand{\cftsecfont}{\sffamily}
+  \renewcommand{\cftsecpagefont}{\sffamily}
+  \renewcommand{\cftsubsecfont}{\sffamily}
+  \renewcommand{\cftsubsecpagefont}{\sffamily}
+  \renewcommand{\cftsubsubsecfont}{\sffamily}
+  \renewcommand{\cftsubsubsecpagefont}{\sffamily}
+  %\renewcommand{\cftsecdotsep}{\cftnodots}
+  %\renewcommand{\cftsubsecdotsep}{\cftnodots}
+  %\renewcommand{\cftsubsubsecdotsep}{\cftnodots}
+}
+
 %captions
 \RequirePackage{caption}
 \captionsetup{labelfont={sf}, labelsep=period}
+\DeclareCaptionLabelFormat{simple}{#2.}
+\captionsetup[subfigure]{labelformat=simple, labelsep=space}
 
 % columns
 \RequirePackage{multicol}
@@ -68,9 +93,16 @@ maxbibnames=99]{biblatex}
 
   \hypersetup{
       colorlinks,
-      allcolors={gray},
+      allcolors={darkblue},
       linktoc = all
   }
+
+  \makeatletter
+  \let\old@cite\@cite
+  \renewcommand{\@cite}[2]{%
+    {\footnotesize\ttfamily\old@cite{#1}{#2}}%
+  }
+  \makeatother
 }
 \makeatother
 
@@ -85,13 +117,13 @@ maxbibnames=99]{biblatex}
 \renewcommand{\lstlistingname}{\GetTranslation{algorithm-name}}
 
 \lstdefinestyle{global}{
-  basicstyle=\normalfont,
+  basicstyle=\ttfamily,
   belowcaptionskip=1\baselineskip,
   breaklines=true,
   captionpos=b,
   columns=fullflexible,
   keywords = {if, for, while, exit, return},
-  keywordstyle=\itshape,
+  keywordstyle=\color{blue},
   mathescape=true,
   numbers=left,
   showstringspaces=false,
@@ -122,9 +154,9 @@ maxbibnames=99]{biblatex}
 {
   \RequirePackage[noindentafter]{titlesec}
 
-  \titleformat{\section}{\Large\bfseries\sffamily}{\thesection}{1em}{}
-  \titleformat{\subsection}{\large\bfseries\sffamily}{\thesubsection}{1em}{}
-  \titleformat{\subsubsection}{\bfseries\sffamily}{\thesubsubsection}{1em}{}
+  \titleformat{\section}{\Large\sffamily}{\thesection}{1em}{}
+  \titleformat{\subsection}{\large\sffamily}{\thesubsection}{1em}{}
+  \titleformat{\subsubsection}{\sffamily}{\thesubsubsection}{1em}{}
   \titleformat{\paragraph}{\sffamily}{\theparagraph}{1em}{}
   \titleformat{\subparagraph}{\sffamily}{}{1em}{}
 }

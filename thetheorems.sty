@@ -31,18 +31,21 @@
 \DeclareTranslation{Spanish}{theorem-name}{Teorema}
 
 \newtheorem{theorem}{\GetTranslation{theorem-name}}[\mynumbering]
+\newtheorem*{theorem*}{\GetTranslation{theorem-name}}
 
 \DeclareTranslationFallback{lemma-name}{Lemma}
 \DeclareTranslation{English}{lemma-name}{Lemma}
 \DeclareTranslation{Spanish}{lemma-name}{Lema}
 
 \newtheorem{lemma}{\GetTranslation{lemma-name}}[\mynumbering]
+\newtheorem*{lemma*}{\GetTranslation{lemma-name}}
 
 \DeclareTranslationFallback{proposition-name}{Proposition}
 \DeclareTranslation{English}{proposition-name}{Proposition}
 \DeclareTranslation{Spanish}{proposition-name}{Proposición}
 
 \newtheorem{proposition}{\GetTranslation{proposition-name}}[\mynumbering]
+\newtheorem*{proposition*}{\GetTranslation{proposition-name}}
 
 \DeclareTranslationFallback{corollary-name}{Corollary}
 \DeclareTranslation{English}{corollary-name}{Corollary}
@@ -55,6 +58,7 @@
 \DeclareTranslation{Spanish}{definition-name}{Definición}
 
 \newtheorem{definition}{\GetTranslation{definition-name}}[\mynumbering]
+\newtheorem*{definition*}{\GetTranslation{definition-name}}
 
 \DeclareTranslationFallback{idea-name}{Idea}
 \DeclareTranslation{English}{idea-name}{Idea}
@@ -73,6 +77,7 @@
 \DeclareTranslation{Spanish}{example-name}{Ejemplo}
 
 \newtheorem{example}{\GetTranslation{example-name}}[\mynumbering]
+\newtheorem*{example*}{\GetTranslation{example-name}}
 
 \DeclareTranslationFallback{counterexample-name}{Counterexample}
 \DeclareTranslation{English}{counterexample-name}{Counterexample}
@@ -110,14 +115,22 @@
 
 \newtheorem{law}{\GetTranslation{law-name}}[\mynumbering]
 
-\DeclareTranslationFallback{note-name}{Remark}
-\DeclareTranslation{English}{note-name}{Remark}
-\DeclareTranslation{Spanish}{note-name}{Nota}
+\makeatletter
+\@ifclassloaded{beamer}{
+}
+{
+  \DeclareTranslationFallback{note-name}{Remark}
+  \DeclareTranslation{English}{note-name}{Remark}
+  \DeclareTranslation{Spanish}{note-name}{Nota}
 
-\newtheorem{note}{\GetTranslation{note-name}}[\mynumbering]
+  \newtheorem{note}{\GetTranslation{note-name}}[\mynumbering]
+}
+\makeatother
+
+
 
 \renewenvironment{proof}
 {
   \textbf{\proofname:}
 }
-{\hfill \scriptsize$\mdwhtsquare$\vspace{1em}}
+{\hfill \scriptsize$\QED$\vspace{1em}}

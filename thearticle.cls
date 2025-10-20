@@ -19,10 +19,6 @@
 
 \LoadClass{article}
 
-\AtEveryBibitem{%
-  \clearlist{language}%
-}
-
 % todonotes
 \RequirePackage{todonotes}
 \setuptodonotes{linecolor = lightgray, bordercolor = lightgray, backgroundcolor = white, figcolor = white, size = \footnotesize}
@@ -31,18 +27,8 @@
 
 % Own Packages
 \RequirePackage{thebasis} % Common class configuration.
-\RequirePackage{thetheorems} % Theorem configuration.
 
-% TOC
-\RequirePackage[titles]{tocloft}
-\renewcommand{\cftsecfont}{\sffamily}
-\renewcommand{\cftsecpagefont}{\sffamily}
-\renewcommand{\cftsubsecfont}{\sffamily}
-\renewcommand{\cftsubsecpagefont}{\sffamily}
-\renewcommand{\cftsubsubsecfont}{\sffamily}
-\renewcommand{\cftsubsubsecpagefont}{\sffamily}
-\renewcommand{\cftsubsecdotsep}{\cftnodots}
-\renewcommand{\cftsubsubsecdotsep}{\cftnodots}
+
 
 % margins and indentation
 \usepackage[top=2.54cm, bottom=2.54cm, left=1.91cm, right=1.91cm]{geometry}
