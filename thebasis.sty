@@ -76,8 +76,10 @@ maxbibnames=5]{biblatex}
 %captions
 \RequirePackage{caption}
 \captionsetup{labelfont={sf}, labelsep=period}
-\DeclareCaptionLabelFormat{simple}{#2.}
-\captionsetup[subfigure]{labelformat=simple, labelsep=space}
+\@ifclassloaded{beamer}{}{
+  \DeclareCaptionLabelFormat{simple}{#2.}
+  \captionsetup[subfigure]{labelformat=simple, labelsep=space}
+}
 
 % columns
 \RequirePackage{multicol}
@@ -93,7 +95,7 @@ maxbibnames=5]{biblatex}
 
   \hypersetup{
       colorlinks,
-      allcolors={darkblue},
+      allcolors={blue},
       linktoc = all
   }
 
@@ -126,6 +128,7 @@ maxbibnames=5]{biblatex}
   keywordstyle=\color{blue},
   mathescape=true,
   numbers=left,
+  numberstyle=\ttfamily\color{lightgray},
   showstringspaces=false,
   xleftmargin=\parindent,
 }
@@ -154,8 +157,8 @@ maxbibnames=5]{biblatex}
 {
   \RequirePackage[noindentafter]{titlesec}
 
-  \titleformat{\section}{\Large\sffamily}{\thesection}{1em}{}
-  \titleformat{\subsection}{\large\sffamily}{\thesubsection}{1em}{}
+  \titleformat{\section}{\Large\sffamily\bfseries}{\thesection}{1em}{}
+  \titleformat{\subsection}{\large\sffamily\bfseries}{\thesubsection}{1em}{}
   \titleformat{\subsubsection}{\sffamily}{\thesubsubsection}{1em}{}
   \titleformat{\paragraph}{\sffamily}{\theparagraph}{1em}{}
   \titleformat{\subparagraph}{\sffamily}{}{1em}{}
